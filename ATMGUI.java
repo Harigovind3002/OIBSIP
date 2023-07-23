@@ -162,7 +162,8 @@ public class ATMGUI extends JFrame {
         String pin = new String(txtPin.getPassword());
 
         if (authenticateUser(userId, pin)) {
-            JOptionPane.showMessageDialog(null, "Login successful. Your balance is $" + currentUser.getBalance());
+            JOptionPane.showMessageDialog(null,
+                    "Login successful. Your balance is " + currentUser.getBalance() + " INR");
             btnTransactionsHistory.setEnabled(true);
             btnWithdraw.setEnabled(true);
             btnDeposit.setEnabled(true);
@@ -196,7 +197,7 @@ public class ATMGUI extends JFrame {
         for (Transaction transaction : transactions) {
             if (transaction.getUserId().equals(currentUser.getUserId())) {
                 historyText.append("Transaction ID: ").append(transaction.getTransactionId())
-                        .append(", Amount: $").append(transaction.getAmount()).append("\n");
+                        .append(", Amount: INR").append(transaction.getAmount()).append("\n");
             }
         }
 
@@ -229,7 +230,8 @@ public class ATMGUI extends JFrame {
             Transaction transaction = new Transaction("TXN" + transactionCounter, amount, currentUser.getUserId());
             transactions.add(transaction);
             transactionCounter++;
-            JOptionPane.showMessageDialog(null, "Withdrawal successful. Your new balance is $" + currentUser.getBalance());
+            JOptionPane.showMessageDialog(null,
+                    "Withdrawal successful. Your new balance is " + currentUser.getBalance() + "INR");
         }
     }
 
@@ -253,7 +255,8 @@ public class ATMGUI extends JFrame {
             Transaction transaction = new Transaction("TXN" + transactionCounter, amount, currentUser.getUserId());
             transactions.add(transaction);
             transactionCounter++;
-            JOptionPane.showMessageDialog(null, "Deposit successful. Your new balance is $" + currentUser.getBalance());
+            JOptionPane.showMessageDialog(null,
+                    "Deposit successful. Your new balance is " + currentUser.getBalance() + " INR");
         }
     }
 
@@ -292,7 +295,8 @@ public class ATMGUI extends JFrame {
             transactions.add(transaction);
             transactionCounter++;
 
-            JOptionPane.showMessageDialog(null, "Transfer successful. Your new balance is $" + currentUser.getBalance());
+            JOptionPane.showMessageDialog(null,
+                    "Transfer successful. Your new balance is " + currentUser.getBalance() + " INR");
         }
     }
 
